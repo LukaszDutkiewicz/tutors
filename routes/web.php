@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TutorsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group(
+    ['prefix' => '/tutors/', 'as' => 'tutors.'],
+    function () {
+        Route::get('list', [TutorsController::class], 'list')->name('list');
+    }
+);
+
+Route::get('/{any}', [HomeController::class, 'homePage'])->where('any', '.*');
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
