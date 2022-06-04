@@ -10,8 +10,16 @@
 
 <body>
     <div class="container">
+        <div class="logo">
+
+        </div>
         <div class="nav">
-            <a href="/">Strona główna</a>
+            <div style="display:inline-block; margin:3px;">
+                <a href="/">Strona główna</a>
+            </div>
+            <div style="display:inline-block; margin:3px;">
+                <a href="{{ route('tutors.create') }}">Dodaj korepetytora</a>
+            </div>
         </div>
         <div class="tutors">
             <div class="filters">
@@ -26,7 +34,19 @@
                     </div>
                     <div style="display:inline-block;margin:3px;">
                         <label for="subject">Przedmiot</label>
-                        <input type="text" name="subject" id="subject">
+                        <select name="subject" id="subject">
+                            <option value="">wszystkie</option>
+                            <option value="j.polski">j.polski</option>
+                            <option value="j.angielski">j.angielski</option>
+                            <option value="j.niemiecki">j.niemiecki</option>
+                            <option value="matematyka">matematyka</option>
+                            <option value="fizyka">fizyka</option>
+                            <option value="informatyka">informatyka</option>
+                            <option value="chemia">chemia</option>
+                            <option value="biologia">biologia</option>
+                            <option value="geografia">geografia</option>
+                            <option value="historia">historia</option>
+                        </select>
                     </div>
                     <div style="display: inline-block; margin: 3px;">
                         <button type="submit">Filtruj</button>

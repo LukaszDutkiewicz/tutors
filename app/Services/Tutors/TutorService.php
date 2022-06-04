@@ -19,4 +19,8 @@ class TutorService
     {
         return $this->tutorModel->find($id);
     }
+    public function create($tutor)
+    {
+        $this->tutorModel::create($tutor);
+    }
 }

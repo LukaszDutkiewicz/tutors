@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tutor extends Model
 {
     use HasFactory;
-    protected $fillable = ['firstName', 'lastName', 'subject', 'rate', 'phone', 'email',];
+    protected $fillable = ['first_name', 'last_name', 'subject', 'rate', 'phone', 'email',];
 
     public function scopeFilterByFirstName($query, $firstName)
     {

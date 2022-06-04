@@ -20,4 +20,16 @@ class TutorController extends Controller
         $tutor = $this->tutorService->show($id);
         return view('tutors.show', ['tutor' => $tutor]);
     }
+
+    public function getCreateView()
+    {
+        return view('tutors.create');
+    }
+
+    public function create(Request $request)
+    {
+        $tutor = $request->all();
+        $this->tutorService->create($tutor);
+        return redirect()->route('tutors.list');
+    }
 }
