@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Tutor extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'subject', 'phone', 'email'];
+    protected $fillable = ['firstName', 'lastName', 'subject', 'rate', 'phone', 'email',];
 
-    public function scopeFilterByName($query, $name)
+    public function scopeFilterByFirstName($query, $firstName)
     {
-        return $query->where('name', 'like', '%' . $name . '%');
+        return $query->where('first_name', 'like', '%' . $firstName . '%');
+    }
+    public function scopeFilterByLastName($query, $lastName)
+    {
+        return $query->where('last_name', 'like', '%' . $lastName . '%');
     }
     public function scopeFilterBySubject($query, $subject)
     {

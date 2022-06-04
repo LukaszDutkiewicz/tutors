@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TutorsController;
+use App\Http\Controllers\Tutors\TutorsController;
+use App\Http\Controllers\Tutors\TutorController;
 
 
 /*
@@ -19,7 +20,8 @@ use App\Http\Controllers\TutorsController;
 Route::group(
     ['prefix' => '/tutors/', 'as' => 'tutors.'],
     function () {
-        Route::get('list', [TutorsController::class], 'list')->name('list');
+        Route::get('list', [TutorsController::class, 'list'])->name('list');
+        Route::get('show/{id}', [TutorController::class, 'show'])->name('show');
     }
 );
 

@@ -6,7 +6,7 @@ use App\Models\Tutors\Tutor;
 
 use Illuminate\Support\Facades\DB;
 
-class TutorsService
+class TutorService
 {
 
     public Tutor $tutorModel;
@@ -15,8 +15,8 @@ class TutorsService
     {
         $this->tutorModel = $tutorModel;
     }
-    public function list($firstName, $lastName, $subject, $rate, $phone, $email)
+    public function show($id)
     {
-        return $this->tutorModel->filterByFirstName($firstName)->filterByLastName($lastName)->filterBysubject($subject)->get();
+        return $this->tutorModel->find($id);
     }
 }

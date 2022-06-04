@@ -15,8 +15,10 @@ class CreateTutors extends Migration
     {
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->nullable();
+            $table->text('first_name')->nullable();
+            $table->text('last_name')->nullable();
             $table->text('subject')->nullable();
+            $table->integer('rate')->nullable();
             $table->text('phone')->nullable();
             $table->text('email')->nullable();
             $table->timestamps();

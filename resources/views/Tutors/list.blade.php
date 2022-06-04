@@ -17,8 +17,12 @@
             <div class="filters">
                 <form action="{{ route('tutors.list') }}" method="get">
                     <div style="display:inline-block;margin:3px;">
-                        <label for="name">Imie i Nazwisko</label>
-                        <input type="text" name="name" id="name">
+                        <label for="fisrt_name">Imie</label>
+                        <input type="text" name="first_name" id="first_name">
+                    </div>
+                    <div style="display:inline-block;margin:3px;">
+                        <label for="last_name">Nazwisko</label>
+                        <input type="text" name="last_name" id="last_name">
                     </div>
                     <div style="display:inline-block;margin:3px;">
                         <label for="subject">Przedmiot</label>
@@ -33,10 +37,11 @@
                 <thead>
                     <tr>
                         <th>Lp</th>
-                        <th>Imie i Nazwisko</th>
+                        <th>Imie</th>
+                        <th>Nazwisko</th>
                         <th>Przedmiot</th>
-                        <th>Telefon</th>
-                        <th>Mail</th>
+                        <th>Ocena</th>
+                        <th>Szczegóły</th>
 
                     </tr>
                 </thead>
@@ -44,10 +49,11 @@
                     @foreach ($tutors as $tutor)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $tutor->name }}</td>
+                            <td>{{ $tutor->first_name }}</td>
+                            <td>{{ $tutor->last_name }}</td>
                             <td>{{ $tutor->subject }}</td>
-                            <td>{{ $tutor->phone }}</td>
-                            <td>{{ $tutor->email }}</td>
+                            <td>{{ $tutor->rate }}</td>
+                            <td><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Zobacz</a></td>
                         </tr>
                     @endforeach
                 </tbody>
