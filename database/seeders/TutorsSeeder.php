@@ -18,10 +18,11 @@ class TutorsSeeder extends Seeder
     {
         //DB::table('tutors')->truncate();
         $faker = FakerFactory::create();
-        $data = [];
         $subjects = ['matematyka', 'j.polski', 'j.angielski', 'j.niemiecki', 'biologia', 'geografia', 'chemia', 'informatyka', 'historia', 'fizyka'];
+        $data = [];
+
         for ($i = 0; $i < 30; $i++) {
-            $data[] = ['first_name' => $faker->firstName(), 'last_name' => $faker->lastName(), 'subject' => $subjects[$faker->numberBetween(0, 9)], 'rate' => $faker->numberBetween(1, 6), 'phone' => $faker->phoneNumber(), 'email' => $faker->email()];
+            $data[] = ['first_name' => $faker->firstName(), 'last_name' => $faker->lastName(), 'rate' => $faker->numberBetween(1, 6), 'phone' => $faker->phoneNumber(), 'email' => $faker->email(), 'subject_id' => $faker->numberBetween(1, 10)];
         }
         DB::table('tutors')->insert($data);
     }

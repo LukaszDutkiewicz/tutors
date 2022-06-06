@@ -33,19 +33,14 @@
                         <input type="text" name="last_name" id="last_name">
                     </div>
                     <div style="display:inline-block;margin:3px;">
-                        <label for="subject">Przedmiot</label>
-                        <select name="subject" id="subject">
+                        <label for="subject_id">Przedmiot</label>
+                        <select name="subject_id" id="subject_id">
                             <option value="">wszystkie</option>
-                            <option value="j.polski">j.polski</option>
-                            <option value="j.angielski">j.angielski</option>
-                            <option value="j.niemiecki">j.niemiecki</option>
-                            <option value="matematyka">matematyka</option>
-                            <option value="fizyka">fizyka</option>
-                            <option value="informatyka">informatyka</option>
-                            <option value="chemia">chemia</option>
-                            <option value="biologia">biologia</option>
-                            <option value="geografia">geografia</option>
-                            <option value="historia">historia</option>
+                            @foreach ($subjects as $subject)
+                                {
+                                <option value="{{ $subject->name }}">{{ $subject->name }}</option>
+                                }
+                            @endforeach
                         </select>
                     </div>
                     <div style="display: inline-block; margin: 3px;">
@@ -71,7 +66,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $tutor->first_name }}</td>
                             <td>{{ $tutor->last_name }}</td>
-                            <td>{{ $tutor->subject }}</td>
+                            <td>{{ $tutor->subject->name }}</td>
                             <td>{{ $tutor->rate }}</td>
                             <td><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Zobacz</a></td>
                         </tr>

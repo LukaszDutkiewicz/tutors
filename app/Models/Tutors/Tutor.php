@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tutor extends Model
 {
     use HasFactory;
-    protected $fillable = ['first_name', 'last_name', 'subject', 'rate', 'phone', 'email',];
+    protected $fillable = ['first_name', 'last_name', 'rate', 'phone', 'email', 'subject_id',];
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 
     public function scopeFilterByFirstName($query, $firstName)
     {
@@ -20,6 +25,7 @@ class Tutor extends Model
     }
     public function scopeFilterBySubject($query, $subject)
     {
-        return $query->where('subject', 'like', '%' . $subject . '%');
+        //return $query->where('subject_id->name', 'like', '%' . $subject . '%');
+        return $query->join('subjects', 'subject_id', '=', 'subjects.id')->where('subjects.name', 'LIKE', '%' . $subject . '%');
     }
 }

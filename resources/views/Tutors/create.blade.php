@@ -28,18 +28,14 @@
                 <input type="text" name="last_name" id="last_name">
             </div>
             <div>
-                <label for="subject">Przedmiot</label>
-                <select name="subject" id="subject">
-                    <option value="j.polski">j.polski</option>
-                    <option value="j.angielski">j.angielski</option>
-                    <option value="j.niemiecki">j.niemiecki</option>
-                    <option value="matematyka">matematyka</option>
-                    <option value="fizyka">fizyka</option>
-                    <option value="informatyka">informatyka</option>
-                    <option value="chemia">chemia</option>
-                    <option value="biologia">biologia</option>
-                    <option value="geografia">geografia</option>
-                    <option value="historia">historia</option>
+                <label for="subject_id">Przedmiot</label>
+                <select name="subject_id" id="subject_id">
+                    @foreach ($subjects as $subject)
+                        {
+                        <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                        }
+                    @endforeach
+
                 </select>
             </div>
             <div>

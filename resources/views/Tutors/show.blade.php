@@ -17,7 +17,7 @@
             <h1>Korepetytor</h1>
             <h2>{{ $tutor->first_name }} {{ $tutor->last_name }}</h2>
             <br>
-            <strong>Przedmiot: </strong>{{ $tutor->subject }}
+            <strong>Przedmiot: </strong>{{ $tutor->subject->name }}
             <h3>Szczegóły</h3>
             <ul>
                 <li><strong>Telefon: </strong>{{ $tutor->phone }}</li>

@@ -17,10 +17,10 @@ class CreateTutors extends Migration
             $table->id();
             $table->text('first_name')->nullable();
             $table->text('last_name')->nullable();
-            $table->text('subject')->nullable();
             $table->integer('rate')->nullable();
             $table->text('phone')->nullable();
             $table->text('email')->nullable();
+            // $table->text('subject_id')->nullable();
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tutors;
 use App\Http\Controllers\Controller;
 use App\Services\Tutors\TutorService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TutorController extends Controller
 {
@@ -23,7 +24,8 @@ class TutorController extends Controller
 
     public function getCreateView()
     {
-        return view('tutors.create');
+        $subjects = DB::table('subjects')->get();
+        return view('tutors.create', ['subjects' => $subjects]);
     }
 
     public function create(Request $request)
