@@ -50,6 +50,7 @@
                 <label for="email">Mail</label>
                 <input type="text" name="email" id="email">
             </div>
+            @csrf
             <button type="submit">Dodaj</button>
         </form>
     </div>
