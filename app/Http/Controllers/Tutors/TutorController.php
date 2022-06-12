@@ -39,4 +39,17 @@ class TutorController extends Controller
         $this->tutorService->destroy($id);
         return redirect()->route('tutors.list');
     }
+    public function getUpdateView($id)
+    {
+        $tutor = $this->tutorService->show($id);
+        $subjects = DB::table('subjects')->get();
+        return view('tutors.update', ['tutor' => $tutor, 'subjects' => $subjects]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $newTutor = $request->all();
+        $this->tutorService->update($newTutor, $id);
+        return redirect()->route('tutors.list');
+    }
 }

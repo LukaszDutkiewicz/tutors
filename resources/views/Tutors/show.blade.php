@@ -23,7 +23,11 @@
                 <li><strong>Telefon: </strong>{{ $tutor->phone }}</li>
                 <li><strong>Mail: </strong>{{ $tutor->email }}</li>
             </ul>
+            <strong>Opinie: </strong>
+            <br>
+            <a href="">Kontakt</a>
         </div>
+        <a href="{{ route('tutors.update', ['id' => $tutor->id]) }}">Edytuj</a>
     </div>
 
 </body>

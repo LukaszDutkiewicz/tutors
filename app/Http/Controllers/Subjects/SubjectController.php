@@ -28,6 +28,6 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         $this->subjectService->destroy($id);
-        return redirect()->route('subject.list');
+        return redirect()->route('subjects.list');
     }
 }

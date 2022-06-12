@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('destroy/{id}', [TutorController::class, 'destroy'])->name('destroy');
             Route::get('create', [TutorController::class, 'getCreateView'])->name('getCreateView');
             Route::post('create', [TutorController::class, 'create'])->name('create');
+            Route::get('update/{id}', [TutorController::class, 'getUpdateView'])->name('getUpdateView');
+            Route::post('update/{id}', [TutorController::class, 'update'])->name('update');
         }
     );
     Route::group(
@@ -44,9 +46,9 @@ Route::middleware(['auth'])->group(function () {
             Route::post('create', [SubjectController::class, 'create'])->name('create');
         }
     );
-    Route::get('/sendEmail', [MailController::class, 'sendEmail']);
+    Route::get('sendEmail/{recipient}', [MailController::class, 'sendEmail'])->name('sendEmail');
 
-    Route::get('/{any}', [HomeController::class, 'homePage'])->where('any', '.*');
+    Route::get('{any}', [HomeController::class, 'homePage'])->where('any', '.*');
 });
 
 
