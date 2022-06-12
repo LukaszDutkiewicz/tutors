@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Tutors\TutorsController;
 use App\Http\Controllers\Tutors\TutorController;
+use App\Http\Controllers\Subjects\SubjectsController;
+use App\Http\Controllers\Subjects\SubjectController;
 
 
 /*
@@ -30,6 +32,16 @@ Route::middleware(['auth'])->group(function () {
             Route::post('destroy/{id}', [TutorController::class, 'destroy'])->name('destroy');
             Route::get('create', [TutorController::class, 'getCreateView'])->name('getCreateView');
             Route::post('create', [TutorController::class, 'create'])->name('create');
+        }
+    );
+    Route::group(
+        ['prefix' => '/subjects/', 'as' => 'subjects.'],
+        function () {
+            Route::get('list', [SubjectsController::class, 'list'])->name('list');
+            Route::get('show/{id}', [SubjectController::class, 'show'])->name('show');
+            Route::post('destroy/{id}', [SubjectController::class, 'destroy'])->name('destroy');
+            Route::get('create', [SubjectController::class, 'getCreateView'])->name('getCreateView');
+            Route::post('create', [SubjectController::class, 'create'])->name('create');
         }
     );
     Route::get('/sendEmail', [MailController::class, 'sendEmail']);

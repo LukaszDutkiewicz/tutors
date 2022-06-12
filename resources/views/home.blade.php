@@ -13,6 +13,8 @@
         <h1>Strona główna</h1>
         <div class="nav">
             <a href="{{ route('tutors.list') }}">Korepetytorzy</a>
+            <br><br>
+            <a href="{{ route('subjects.list') }}">Przedmioty</a>
         </div>
     </div>
 </body>

@@ -14,4 +14,9 @@ class Subject extends Model
     {
         return $this->hasMany(Tutor::class);
     }
+
+    public function scopeFilterByName($query, $name)
+    {
+        return $query->where('name', 'like', '%' . $name . '%');
+    }
 }
