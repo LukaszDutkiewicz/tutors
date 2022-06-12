@@ -23,4 +23,8 @@ class TutorService
     {
         $this->tutorModel::create($tutor);
     }
+    public function destroy($id)
+    {
+        $this->tutorModel->destroy($id);
+    }
 }

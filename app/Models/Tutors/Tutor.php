@@ -25,7 +25,9 @@ class Tutor extends Model
     }
     public function scopeFilterBySubject($query, $subject)
     {
-        //return $query->where('subject_id->name', 'like', '%' . $subject . '%');
-        return $query->join('subjects', 'subject_id', '=', 'subjects.id')->where('subjects.name', 'LIKE', '%' . $subject . '%');
+        if ($subject)
+            return $query->with('subject')->where('subject_id', '=',  $subject);
+        else
+            return $query->with('subject')->where('subject_id', '<>',  $subject);
     }
 }

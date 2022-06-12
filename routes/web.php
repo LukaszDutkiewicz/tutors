@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
         function () {
             Route::get('list', [TutorsController::class, 'list'])->name('list');
             Route::get('show/{id}', [TutorController::class, 'show'])->name('show');
+            Route::post('destroy/{id}', [TutorController::class, 'destroy'])->name('destroy');
             Route::get('create', [TutorController::class, 'getCreateView'])->name('getCreateView');
             Route::post('create', [TutorController::class, 'create'])->name('create');
         }

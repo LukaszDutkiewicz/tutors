@@ -34,4 +34,9 @@ class TutorController extends Controller
         $this->tutorService->create($tutor);
         return redirect()->route('tutors.list');
     }
+    public function destroy($id)
+    {
+        $this->tutorService->destroy($id);
+        return redirect()->route('tutors.list');
+    }
 }

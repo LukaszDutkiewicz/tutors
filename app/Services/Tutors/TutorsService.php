@@ -15,9 +15,8 @@ class TutorsService
     {
         $this->tutorModel = $tutorModel;
     }
-    public function list($firstName, $lastName, $subject, $rate, $phone, $email)
+    public function list($firstName, $lastName, $subjectId, $rate, $phone, $email)
     {
-        //dd($subject);
-        return $this->tutorModel->filterByFirstName($firstName)->filterByLastName($lastName)->filterBySubject($subject)->get();
+        return $this->tutorModel->filterByFirstName($firstName)->filterByLastName($lastName)->filterBySubject($subjectId)->get();
     }
 }

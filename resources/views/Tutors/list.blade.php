@@ -38,7 +38,7 @@
                             <option value="">wszystkie</option>
                             @foreach ($subjects as $subject)
                                 {
-                                <option value="{{ $subject->name }}">{{ $subject->name }}</option>
+                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                 }
                             @endforeach
                         </select>
@@ -68,7 +68,14 @@
                             <td>{{ $tutor->last_name }}</td>
                             <td>{{ $tutor->subject->name }}</td>
                             <td>{{ $tutor->rate }}</td>
-                            <td><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Zobacz</a></td>
+                            <td><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Zobacz</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('tutors.destroy', ['id' => $tutor->id]) }}" method="post">
+                                    @csrf
+                                    <button type="submit">Usuń</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
