@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function sendEmail($recipient)
+    public function sendEmail()
     {
         $details = [
             'title' => 'Test Mail From Laravel',
             'body' => 'Hello',
         ];
-        Mail::to($recipient)->send(new TestMail($details));
-        return "Email sent";
+        Mail::to('l_dutkiewicz@o2.pl')->send(new TestMail($details));
+        return view('home');
     }
 }

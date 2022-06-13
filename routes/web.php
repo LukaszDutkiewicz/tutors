@@ -7,6 +7,7 @@ use App\Http\Controllers\Tutors\TutorsController;
 use App\Http\Controllers\Tutors\TutorController;
 use App\Http\Controllers\Subjects\SubjectsController;
 use App\Http\Controllers\Subjects\SubjectController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -46,11 +47,10 @@ Route::middleware(['auth'])->group(function () {
             Route::post('create', [SubjectController::class, 'create'])->name('create');
         }
     );
-    Route::get('sendEmail/{recipient}', [MailController::class, 'sendEmail'])->name('sendEmail');
+    Route::get('sendEmail', [MailController::class, 'sendEmail'])->name('sendEmail');
+
+    Route::get('/contact', [ContactController::class, 'index']);
+    Route::post('/contact', [ContactController::class, 'save'])->name('contact.tutor');
 
     Route::get('{any}', [HomeController::class, 'homePage'])->where('any', '.*');
 });
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

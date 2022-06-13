@@ -25,7 +25,7 @@
             </ul>
             <strong>Opinie: </strong>
             <br>
-            <a href="">Kontakt</a>
+            <a href="/sendEmail">Kontakt</a>
         </div>
         <a href="{{ route('tutors.update', ['id' => $tutor->id]) }}">Edytuj</a>
     </div>
