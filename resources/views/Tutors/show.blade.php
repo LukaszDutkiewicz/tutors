@@ -24,9 +24,10 @@
                 <li><strong>Mail: </strong>{{ $tutor->email }}</li>
             </ul>
             <strong>Opinie: </strong>
-            <br>
+            <br><br>
             <a href="/sendEmail">Kontakt</a>
         </div>
+        <br><br>
         <a href="{{ route('tutors.update', ['id' => $tutor->id]) }}">Edytuj</a>
     </div>
 

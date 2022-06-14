@@ -30,6 +30,8 @@
             <div>
                 <label for="subject_id">Przedmiot</label>
                 <select name="subject_id" id="subject_id">
+                    <option value="{{ $tutor->subject->id }}" selected="selected">{{ $tutor->subject->name }}
+                    </option>
                     @foreach ($subjects as $subject)
                         {
                         <option value="{{ $subject->id }}">{{ $subject->name }}</option>

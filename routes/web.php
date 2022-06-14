@@ -49,8 +49,8 @@ Route::middleware(['auth'])->group(function () {
     );
     Route::get('sendEmail', [MailController::class, 'sendEmail'])->name('sendEmail');
 
-    Route::get('/contact', [ContactController::class, 'index']);
-    Route::post('/contact', [ContactController::class, 'save'])->name('contact.tutor');
+    // Route::get('/contact', [ContactController::class, 'index']);
+    // Route::post('/contact', [ContactController::class, 'save'])->name('contact.tutor');
 
     Route::get('{any}', [HomeController::class, 'homePage'])->where('any', '.*');
 });

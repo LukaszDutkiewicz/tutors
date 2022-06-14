@@ -25,9 +25,6 @@ class Tutor extends Model
     }
     public function scopeFilterBySubject($query, $subject)
     {
-        if ($subject)
-            return $query->with('subject')->where('subject_id', '=',  $subject);
-        else
-            return $query->with('subject')->where('subject_id', '<>',  $subject);
+        return $query->with('subject')->where('subject_id', '=',  $subject);
     }
 }

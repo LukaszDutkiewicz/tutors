@@ -15,10 +15,9 @@ class SubjectsController extends Controller
         $this->subjectsService = $subjectsService;
     }
 
-    public function list(Request $request)
+    public function list()
     {
-        $name = $request->get('name');
-        $subjects = $this->subjectsService->list($name);
+        $subjects = $this->subjectsService->list();
         return view('subjects.list', ['subjects' => $subjects]);
     }
 }

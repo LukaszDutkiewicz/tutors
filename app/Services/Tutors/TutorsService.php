@@ -15,8 +15,12 @@ class TutorsService
     {
         $this->tutorModel = $tutorModel;
     }
-    public function list($firstName, $lastName, $subjectId, $rate, $phone, $email)
+    public function list($firstName, $lastName, $subjectId)
     {
-        return $this->tutorModel->filterByFirstName($firstName)->filterByLastName($lastName)->filterBySubject($subjectId)->get();
+        if ($subjectId) {
+            return $this->tutorModel->filterByFirstName($firstName)->filterByLastName($lastName)->filterBySubject($subjectId)->get();
+        } else {
+            return $this->tutorModel->filterByFirstName($firstName)->filterByLastName($lastName)->get();
+        }
     }
 }

@@ -15,8 +15,8 @@ class SubjectsService
     {
         $this->subjectModel = $subjectModel;
     }
-    public function list($name)
+    public function list()
     {
-        return $this->subjectModel->filterByName($name)->get();
+        return $this->subjectModel->get();
     }
 }

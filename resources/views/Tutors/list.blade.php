@@ -26,15 +26,21 @@
                 <form action="{{ route('tutors.list') }}" method="get">
                     <div style="display:inline-block;margin:3px;">
                         <label for="fisrt_name">Imie</label>
-                        <input type="text" name="first_name" id="first_name">
+                        <input type="text" name="first_name" id="first_name"
+                            value="{{ isset($_GET['first_name']) ? $_GET['first_name'] : '' }}">
                     </div>
                     <div style="display:inline-block;margin:3px;">
                         <label for="last_name">Nazwisko</label>
-                        <input type="text" name="last_name" id="last_name">
+                        <input type="text" name="last_name" id="last_name"
+                            value="{{ isset($_GET['last_name']) ? $_GET['last_name'] : '' }}">
                     </div>
                     <div style="display:inline-block;margin:3px;">
                         <label for="subject_id">Przedmiot</label>
                         <select name="subject_id" id="subject_id">
+                            @if (isset($_GET['subject_id']))
+                                <option value="{{ $_GET['subject_id'] }}" selected="selected">
+                                </option>
+                            @endif
                             <option value="">wszystkie</option>
                             @foreach ($subjects as $subject)
                                 {

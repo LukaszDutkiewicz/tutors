@@ -10,13 +10,8 @@ class Subject extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
-    public function tutor()
+    public function tutors()
     {
         return $this->hasMany(Tutor::class);
-    }
-
-    public function scopeFilterByName($query, $name)
-    {
-        return $query->where('name', 'like', '%' . $name . '%');
     }
 }
