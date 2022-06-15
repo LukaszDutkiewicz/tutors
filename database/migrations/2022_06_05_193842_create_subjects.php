@@ -16,7 +16,7 @@ class CreateSubjects extends Migration
         Schema::dropIfExists('subjects');
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
+            $table->string('name');
             $table->timestamps();
         });
     }

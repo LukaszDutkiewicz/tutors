@@ -37,15 +37,19 @@
                     <div style="display:inline-block;margin:3px;">
                         <label for="subject_id">Przedmiot</label>
                         <select name="subject_id" id="subject_id">
-                            @if (isset($_GET['subject_id']))
-                                <option value="{{ $_GET['subject_id'] }}" selected="selected">
-                                </option>
-                            @endif
                             <option value="">wszystkie</option>
                             @foreach ($subjects as $subject)
-                                {
-                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
-                                }
+                                @if (isset($_GET['subject_id']) && $subject->id == $_GET['subject_id'])
+                                    {
+                                    <option value="{{ $_GET['subject_id'] }}" selected="selected">
+                                        {{ $subject->name }}
+                                    </option>
+                                    }
+                                @else
+                                    {
+                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                    }
+                                @endif
                             @endforeach
                         </select>
                     </div>
