@@ -5,12 +5,24 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Validation\ValidationException;
+
 class Handler extends ExceptionHandler
 {
     /**
+     * A list of exception types with their corresponding custom log levels.
+     *
+     * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
+     */
+    protected $levels = [
+        //
+    ];
+
+    /**
      * A list of the exception types that are not reported.
      *
-     * @var array<int, class-string<Throwable>>
+     * @var array<int, class-string<\Throwable>>
      */
     protected $dontReport = [
         //
@@ -37,5 +49,18 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $exception)
+    {
+        if (($exception instanceof NotFoundHttpException || $exception instanceof ValidationException) && $this->requestExceptsJson($request)) {
+            return response()->json(['message' => $exception->getMessage()], 400);
+        }
+        return parent::render($request, $exception);
+    }
+
+    public function requestExceptsJson($request)
+    {
+        return $request->getContentType() == "json" || ($request->getContentType() == "form" && (bool)($request->header('authorization')));
     }
 }
