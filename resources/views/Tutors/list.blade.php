@@ -76,7 +76,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $tutor->first_name }}</td>
                             <td>{{ $tutor->last_name }}</td>
-                            <td>{{ $tutor->subject->name }}</td>
+                            {{-- <td>{{ $tutor->subject->name }}</td> --}}
                             <td>{{ $tutor->rate }}</td>
                             <td><a href="{{ route('tutors.show', ['id' => $tutor->id]) }}">Zobacz</a>
                             </td>

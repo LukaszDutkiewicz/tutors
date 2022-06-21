@@ -47,10 +47,8 @@ Route::middleware(['auth'])->group(function () {
             Route::post('create', [SubjectController::class, 'create'])->name('create');
         }
     );
-    Route::get('sendEmail', [MailController::class, 'sendEmail'])->name('sendEmail');
-
-    // Route::get('/contact', [ContactController::class, 'index']);
-    // Route::post('/contact', [ContactController::class, 'save'])->name('contact.tutor');
+    Route::get('sendEmail', [MailController::class, 'sendEmail'])->name('email.send');
+    Route::get('sendEmailView/{id}', [MailController::class, 'getSendEmailView'])->name("email.getSendEmailView");
 
     Route::get('{any}', [HomeController::class, 'homePage'])->where('any', '.*');
 });

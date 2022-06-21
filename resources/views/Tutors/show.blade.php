@@ -25,7 +25,9 @@
             </ul>
             <strong>Opinie: </strong>
             <br><br>
-            <a href="/sendEmail">Kontakt</a>
+            <form action={{ route('email.getSendEmailView', ['id' => $tutor->id]) }}>
+                <button type="submit">Wyślij wiadomość</button>
+            </form>
         </div>
         <br><br>
         <a href="{{ route('tutors.update', ['id' => $tutor->id]) }}">Edytuj</a>
